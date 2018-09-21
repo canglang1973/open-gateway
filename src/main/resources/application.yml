@@ -1,0 +1,20 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: open-gateway
+  cloud:
+    gateway:
+      routes:
+      - id: host_route
+        uri: http://sandbox.api.winxuan.com
+        predicates:
+        - Path=/router/rest
+
+logging:
+  level:
+    org.springframework.cloud.gateway: TRACE
+    org.springframework.http.server.reactive: DEBUG
+    org.springframework.web.reactive: DEBUG
+    reactor.ipc.netty: DEBUG
+
